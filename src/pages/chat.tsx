@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, type MessageModel } from '@chatscope/chat-ui-kit-react';
+import { postOpenAIMessage } from '~/components/openAi';
 
 
 export default function Chat() {
@@ -22,8 +23,8 @@ export default function Chat() {
         }
     ]);
 
-    const sendMessage = (message: string) => {
-        setMessages([
+    const sendMessage = async (message: string) => {
+        setMessages((messages)=>[
             ...messages,
             {
                 message: message,
@@ -31,6 +32,17 @@ export default function Chat() {
                 sender: "Joe",
                 direction: "outgoing",
                 position: "single"
+            }
+        ]);
+        const result = await postOpenAIMessage(message);
+        setMessages((messages)=>[
+            ...messages,
+            {
+                message: result,
+                sentTime: "just now",
+                sender: "DomainGPT",
+                direction: "incoming",
+                position: "single",
             }
         ]);
     };
@@ -52,7 +64,7 @@ export default function Chat() {
                         placeholder="Type message here"
                         onSend={(innerHtml, textContent, innerText, nodes) => {
                             console.log(innerHtml, textContent, innerText, nodes);
-                            sendMessage(innerText);
+                            void sendMessage(innerText);
                         }} />
                 </ChatContainer>
             </MainContainer>

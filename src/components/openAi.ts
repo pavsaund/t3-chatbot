@@ -1,7 +1,7 @@
 export const postOpenAIMessage = async (prompt: string): Promise<string> => {
     try {
 
-        const response = await fetch('https://api.openai.com/v1/engines/davinci-codex/completions', {
+        const response = await fetch(`https://api.openai.com/v1/engines/${process.env.NEXT_PUBLIC_OPENAI_ENGINE || ''}/completions`, {
             method: 'POST',
             headers: {
                 'Authorization': `Bearer ${process.env.NEXT_PUBLIC_OPENAI_API_KEY || ''}`,

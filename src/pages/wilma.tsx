@@ -26,6 +26,9 @@ export default function Chat() {
         }));
         setMessages(messages);
     }
+    const resetConversation = () => {
+        sendMessage(`("${sessionId}" (reset))`);
+    }
 
     useEffect(() => {
         if (readyState === ReadyState.OPEN) {
@@ -75,6 +78,7 @@ export default function Chat() {
             <div className='p-4'>
                 <h1 className='text-xl'>Wilma</h1>
                 <p>The domain learning system, where an expert can share their knowledge about a domain!</p>
+                <button className='bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded' onClick={() => resetConversation()}>Reset conversation</button>
             </div>
             <MainContainer>
                 <ChatContainer>

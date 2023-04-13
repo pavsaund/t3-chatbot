@@ -3,4 +3,7 @@ export type Message = {
     content: string;
 };
 
-export type Conversation = Message[];
+export type SessionMessage = [string, Message];
+export type InitialMessage = [string, Message[]];
+
+export type Conversation = SessionMessage[];

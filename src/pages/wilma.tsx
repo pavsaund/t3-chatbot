@@ -71,7 +71,7 @@ export default function Chat() {
     }, [sendMessage, sessionId]);
 
     return (
-        <div style={{ position: "relative", height: "80vh" }}>
+        <div style={{ position: "relative", height: "500px" }}>
             <div className='p-4'>
                 <h1 className='text-xl'>Wilma</h1>
                 <p>The domain learning system, where an expert can share their knowledge about a domain!</p>

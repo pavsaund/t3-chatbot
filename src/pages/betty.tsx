@@ -34,7 +34,7 @@ export default function Chat() {
     };
 
     return (
-        <div style={{ position: "relative", height: "100vh" }}>
+        <div style={{ position: "relative", height: "500px" }}>
             <div className='p-4'>
                 <h1 className='text-xl'>Betty</h1>
                 <p>

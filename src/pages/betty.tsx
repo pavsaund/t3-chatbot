@@ -39,9 +39,9 @@ export default function Chat() {
                 <h1 className='text-xl'>Betty</h1>
                 <p>
                     The domain assistant where anyone can learn more about the domain from an expert trained AI!
-                    Right now I only know about very specific table information in M3, but I'm waiting to be trained by the expert system, Wilma.
+                    Right now I only know about very specific table information in M3, but Im waiting to be trained by the expert system, Wilma.
                 </p>
-                <p className='mt-2'>Here you can ask specific questions about table information like 'MSUBTF' or 'MUPSTR'.</p>
+                <p className='mt-2'>Here you can ask specific questions about table information like MSUBTF or MUPSTR.</p>
             </div>
             <MainContainer>
                 <ChatContainer>

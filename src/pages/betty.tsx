@@ -2,26 +2,11 @@ import React, { useState } from 'react';
 
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, type MessageModel } from '@chatscope/chat-ui-kit-react';
-import { postCompletion, postOpenAIMessage } from '~/components/openAi';
+import { postCompletion, postCompletionWithPrompt, postOpenAIMessage } from '~/components/openAi';
 
 
 export default function Chat() {
-    const [messages, setMessages] = useState<MessageModel[]>([
-        {
-            message: "Hello my friend",
-            sentTime: "just now",
-            sender: "Joe",
-            direction: "incoming",
-            position: "single"
-        },
-        {
-            message: "Hello my friend",
-            sentTime: "just now",
-            sender: "Joe",
-            direction: "outgoing",
-            position: "single",
-        }
-    ]);
+    const [messages, setMessages] = useState<MessageModel[]>([]);
 
     const sendMessage = async (message: string) => {
         setMessages((messages)=>[
@@ -35,7 +20,7 @@ export default function Chat() {
             }
         ]);
         // const result = await postOpenAIMessage(message);
-        const result = await postCompletion(message);
+        const result = await postCompletionWithPrompt(message);
         setMessages((messages)=>[
             ...messages,
             {
@@ -49,7 +34,15 @@ export default function Chat() {
     };
 
     return (
-        <div style={{ position: "relative", height: "500px" }}>
+        <div style={{ position: "relative", height: "100vh" }}>
+            <div className='p-4'>
+                <h1 className='text-xl'>Betty</h1>
+                <p>
+                    The domain assistant where anyone can learn more about the domain from an expert trained AI!
+                    Right now I only know about very specific table information in M3, but I'm waiting to be trained by the expert system, Wilma.
+                </p>
+                <p className='mt-2'>Here you can ask specific questions about table information like 'MSUBTF' or 'MUPSTR'.</p>
+            </div>
             <MainContainer>
                 <ChatContainer>
                     <MessageList>

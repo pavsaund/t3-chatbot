@@ -7,6 +7,7 @@ import { WEBSOCKET_ENDPOINT, getConversation } from '~/components/fredAiApi';
 import useWebSocket from 'react-use-websocket';
 
 
+
 export default function Chat() {
     const [messages, setMessages] = useState<MessageModel[]>([]);
     const [messageHistory, setMessageHistory] = useState<Conversation>([]);

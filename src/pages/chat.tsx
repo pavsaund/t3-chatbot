@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 import '@chatscope/chat-ui-kit-styles/dist/default/styles.min.css';
 import { MainContainer, ChatContainer, MessageList, Message, MessageInput, type MessageModel } from '@chatscope/chat-ui-kit-react';
-import { postOpenAIMessage } from '~/components/openAi';
+import { postCompletion, postOpenAIMessage } from '~/components/openAi';
 
 
 export default function Chat() {
@@ -34,7 +34,8 @@ export default function Chat() {
                 position: "single"
             }
         ]);
-        const result = await postOpenAIMessage(message);
+        // const result = await postOpenAIMessage(message);
+        const result = await postCompletion(message);
         setMessages((messages)=>[
             ...messages,
             {

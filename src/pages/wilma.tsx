@@ -49,7 +49,7 @@ export default function Chat() {
                     ...messages,
                     {
                         message: message.content,
-                        sender: "Fred",
+                        sender: "Wilma",
                         direction: "incoming",
                         position: "single"
                     }
@@ -87,7 +87,9 @@ export default function Chat() {
                             <Message
                                 key={index}
                                 model={message}
-                            />
+                            >
+                                <Message.Footer sender={message.sender}></Message.Footer>
+                            </Message>
                         ))}
                     </MessageList>
                     <MessageInput

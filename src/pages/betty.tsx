@@ -14,7 +14,7 @@ export default function Chat() {
             {
                 message: message,
                 sentTime: "just now",
-                sender: "Joe",
+                sender: "You",
                 direction: "outgoing",
                 position: "single"
             }
@@ -26,7 +26,7 @@ export default function Chat() {
             {
                 message: result,
                 sentTime: "just now",
-                sender: "DomainGPT",
+                sender: "Betty",
                 direction: "incoming",
                 position: "single",
             }
@@ -50,7 +50,9 @@ export default function Chat() {
                             <Message
                                 key={index}
                                 model={message}
-                            />
+                            >
+                                <Message.Footer sender={message.sender}></Message.Footer>
+                            </Message>
                         ))}
                     </MessageList>
                     <MessageInput
